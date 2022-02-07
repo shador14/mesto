@@ -1,0 +1,7 @@
+.footer {
+  width: 68.75%;
+  margin: 66px 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
