@@ -1,0 +1,15 @@
+.profile__button-edit {
+  width: 7.14%;
+  max-width: 24px;
+  max-height: 24px;
+  margin: 0 0 0 5.36%;
+  padding-bottom: 5.68%;
+  background: transparent;
+  border: 1px solid #FFFFFF;
+  background-image: url(../../../images/correct.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  box-sizing: border-box;
+  align-self: center;
+}
