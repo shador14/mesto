@@ -1,7 +1,10 @@
 .profile__button-edit {
-  width: 7.14%;
+  /* width: 7.14%;
   max-width: 24px;
-  max-height: 24px;
+  max-height: 24px; */
+  /* margin: 0 0 0 18px; */
+  width: 24px;
+  height: 24px;
   margin: 0;
   padding-bottom: 6.25%;
   background: transparent;
@@ -11,7 +14,6 @@
   background-repeat: no-repeat;
   background-size: 10px 10px;
   box-sizing: border-box;
-  align-self: center;
   position: absolute;
   top: 17%;
   right: 0%;
@@ -24,6 +26,7 @@
     max-height: 18px;
     margin: 0;
     padding-bottom: 5.32%;
+    position: absolute;
     top: 10%;
     right: 5%;
     background-size: 7.5px 7.5px;
