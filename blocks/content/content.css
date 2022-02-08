@@ -8,3 +8,11 @@
   gap: 46.25px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 392px) {
+  .content {
+    width: 88.125%;
+    margin: 42px auto 0;
+    gap: 36px;
+  }
+}
