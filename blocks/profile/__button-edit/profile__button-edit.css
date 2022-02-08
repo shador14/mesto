@@ -17,16 +17,24 @@
   align-self: center;
   position: absolute;
   top: 17%;
-  /* right: 0%; */
-  left: 312px;
+  right: 0%;
+  /* left: 312px; */
 }
 
-@media screen and (max-width: 1145px) {
+/* @media screen and (max-width: 1145px) {
   .profile__button-edit {
     top: 47%;
     left: 140px;
   }
 }
+
+@media screen and (max-width: 801px) {
+  .profile__button-edit {
+    top: 41%;
+    left: 140px;
+  }
+} */
+
 
 @media screen and (max-width: 392px) {
   .profile__button-edit {
