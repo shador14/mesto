@@ -18,7 +18,17 @@
     width: 100%;
     max-width: 282px;
     margin: 12.76% 0 0;
-    padding-bottom: 16%;
+    padding-bottom: 10%;
     background-size: 16px 16px;
   }
 }
+/*
+@media screen and (max-width: 845px) {
+  .profile__button-add {
+    width: 100%;
+    max-width: 282px;
+    margin: 12.76% 0 0;
+    padding-bottom: 16%;
+    background-size: 16px 16px;
+  }
+} */

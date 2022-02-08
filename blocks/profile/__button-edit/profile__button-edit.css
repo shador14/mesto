@@ -1,8 +1,4 @@
 .profile__button-edit {
-  /* width: 7.14%;
-  max-width: 24px;
-  max-height: 24px; */
-  /* margin: 0 0 0 18px; */
   width: 24px;
   height: 24px;
   margin: 0;
@@ -25,10 +21,24 @@
     max-width: 18px;
     max-height: 18px;
     margin: 0;
+    padding-bottom: 3%;
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    background-size: 7.5px 7.5px;
+  }
+}
+
+/* @media screen and (max-width: 845px) {
+  .profile__button-edit {
+    width: 6.38%;
+    max-width: 18px;
+    max-height: 18px;
+    margin: 0;
     padding-bottom: 5.32%;
     position: absolute;
     top: 10%;
     right: 5%;
     background-size: 7.5px 7.5px;
   }
-}
+} */
