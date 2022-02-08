@@ -17,15 +17,19 @@
 
 @media screen and (max-width: 845px) {
   .profile__button-edit {
-    width: 6.38%;
-    max-width: 18px;
-    max-height: 18px;
-    margin: 0;
+    width: 18px;
+    height: 18px;
     padding-bottom: 3%;
-    position: absolute;
+    background-size: 7.5px 7.5px;
     top: 10%;
     right: 20%;
-    background-size: 7.5px 7.5px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .profile__button-edit {
+    top: 15%;
+    right: 5%;
   }
 }
 

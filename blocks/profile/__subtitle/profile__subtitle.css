@@ -14,3 +14,12 @@
     line-height: 19.5px;
   }
 }
+
+
+@media screen and (max-width: 545px) {
+  .profile__subtitle {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+/*при значение margin: 3px - идеальное совпадение с макетом, оставляю 14, т.к. так идёт про брифу*/
