@@ -2,8 +2,8 @@
   width: 7.14%;
   max-width: 24px;
   max-height: 24px;
-  margin: 0 0 0 5.36%;
-  padding-bottom: 5.68%;
+  margin: 0;
+  padding-bottom: 6.25%;
   background: transparent;
   border: 1px solid #FFFFFF;
   background-image: url(../../../images/correct.svg);
@@ -12,6 +12,9 @@
   background-size: 10px 10px;
   box-sizing: border-box;
   align-self: center;
+  position: absolute;
+  top: 17%;
+  right: 0%;
 }
 
 @media screen and (max-width: 392px) {
