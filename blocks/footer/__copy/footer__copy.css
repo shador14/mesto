@@ -7,7 +7,7 @@
   line-height: 22px;
 }
 
-@media screen and (max-width: 392px) {
+@media screen and (max-width: 845px) {
   .footer__copy {
     font-size: 14px;
     line-height: 17px;

@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 392px) {
+@media screen and (max-width: 845px) {
   .content {
     width: 88.125%;
     margin: 42px auto 0;
