@@ -23,6 +23,10 @@
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__submite/popup__submite.css);
+@import url(../blocks/popup/__input-container/popup__input-container.css);
+@import url(../blocks/popup/__el/popup__el.css);
+@import url(../blocks/popup/__el/_name/popup__el_name.css);
+@import url(../blocks/popup/__el/_description/popup__el_description.css);
 
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
