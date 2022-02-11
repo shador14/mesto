@@ -7,3 +7,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (max-width: 545px) {
+  .popup__content {
+    max-width: 238px;
+  }
+}
