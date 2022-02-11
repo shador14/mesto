@@ -22,4 +22,4 @@
 6. Java
 
 **Ссылка на github pages**
-https://shador14.github.io/russian-travel/
+https://shador14.github.io/mesto/
