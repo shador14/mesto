@@ -1,7 +1,7 @@
 .profile__button-edit {
   width: 24px;
   height: 24px;
-  margin: 0;
+  margin: 0 0 0 18px;
   padding-bottom: 6.25%;
   background: transparent;
   border: 1px solid #FFFFFF;
@@ -10,10 +10,8 @@
   background-repeat: no-repeat;
   background-size: 10px 10px;
   box-sizing: border-box;
-  position: absolute;
-  top: 17%;
-  right: 0%;
   transition: 0.5s;
+  align-self: center;
 }
 
 .profile__button-edit:hover {
@@ -27,28 +25,5 @@
     height: 18px;
     padding-bottom: 3%;
     background-size: 7.5px 7.5px;
-    top: 10%;
-    right: 20%;
   }
 }
-
-@media screen and (max-width: 545px) {
-  .profile__button-edit {
-    top: 15%;
-    right: 5%;
-  }
-}
-
-/* @media screen and (max-width: 845px) {
-  .profile__button-edit {
-    width: 6.38%;
-    max-width: 18px;
-    max-height: 18px;
-    margin: 0;
-    padding-bottom: 5.32%;
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    background-size: 7.5px 7.5px;
-  }
-} */

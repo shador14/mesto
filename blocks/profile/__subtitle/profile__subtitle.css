@@ -20,6 +20,7 @@
   .profile__subtitle {
     font-size: 14px;
     line-height: 17px;
+    text-align: center;
   }
 }
 /*при значение margin: 3px - идеальное совпадение с макетом, оставляю 14, т.к. так идёт про брифу*/
