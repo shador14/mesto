@@ -1,4 +1,4 @@
-.element__like {
+.card__like {
   width: 28px;
   height: 19px;
   margin: 0;
@@ -10,7 +10,7 @@
   align-self: center;
 }
 
-.element__like:hover {
+.card__like:hover {
   opacity: 0.6;
   transition: .3s;
   cursor: pointer;

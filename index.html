@@ -12,7 +12,7 @@
 <body class="page">
 
   <header class="header">
-    <img src="./images/logo.png" alt="Логотип" class="header__logo">
+    <a href="#" class="header__logo"></a>
   </header>
 
   <main class="content">
@@ -21,74 +21,60 @@
 
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button class="profile__button-edit"></button>
+        <button class="profile__button-edit" type="button" aria-label="Редактировать"></button>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
 
-      <button class="profile__button-add">
+      <button class="profile__button-add" type="button" aria-label="Добавить">
       </button>
     </section>
 
-    <section class="popup">
-      <form class="popup__container">
-        <button class="popup__close" type="button"></button>
-        <div class="popup__content">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <fieldset class="popup__input-container">
-            <input type="text" class="popup__el popup__el_name" name="name" value="Жак-Ив Кусто">
-            <input type="text" class="popup__el popup__el_job" name="job" value="Исследователь океана">
-          </fieldset>
-          <button class="popup__submite" type="submit">Сохранить</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="elements">
-      <article class="element">
-        <img src="./images/karachaevsk.png" alt="Карачаево-Черкессия" class="element__image">
-        <div class="element__caption">
-          <h2 class="element__name">Карачаево-Черкессия</h2>
-          <button class="element__like"></button>
+    <section class="cards">
+      <article class="card">
+        <img src="./images/karachaevsk.png" alt="Карачаево-Черкессия" class="card__image">
+        <div class="card__caption">
+          <h2 class="card__name">Карачаево-Черкессия</h2>
+          <button class="card__like" aria-label="Лайк"></button>
         </div>
       </article>
 
-      <article class="element">
-        <img src="./images/elbrus.png" alt="Гора Эльбрус" class="element__image">
-        <div class="element__caption">
-          <h2 class="element__name">Гора Эльбрус</h2>
-          <button class="element__like"></button>
+      <article class="card">
+        <img src="./images/elbrus.png" alt="Гора Эльбрус" class="card__image">
+        <div class="card__caption">
+          <h2 class="card__name">Гора Эльбрус</h2>
+          <button class="card__like" aria-label="Лайк"></button>
         </div>
       </article>
 
-      <article class="element">
-        <img src="./images/dombai.png" alt="Домбай" class="element__image">
-        <div class="element__caption">
-          <h2 class="element__name">Домбай</h2>
-          <button class="element__like"></button>
+      <article class="card">
+        <img src="./images/dombai.png" alt="Домбай" class="card__image">
+        <div class="card__caption">
+          <h2 class="card__name">Домбай</h2>
+          <button class="card__like" aria-label="Лайк"></button>
         </div>
       </article>
 
-      <article class="element">
-        <img src="./images/Turkey.jpg" alt="Турция" class="element__image">
-        <div class="element__caption">
-          <h2 class="element__name">Турция</h2>
-          <button class="element__like"></button>
+      <article class="card">
+        <img src="./images/Turkey.jpg" alt="Турция" class="card__image">
+        <div class="card__caption">
+          <h2 class="card__name">Турция</h2>
+          <button class="card__like" aria-label="Лайк"></button>
         </div>
       </article>
 
-      <article class="element">
-        <img src="./images/washington.jpg" alt="Вашингтон" class="element__image">
-        <div class="element__caption">
-          <h2 class="element__name">Вашингтон</h2>
-          <button class="element__like"></button>
+      <article class="card">
+        <img src="./images/washington.jpg" alt="Вашингтон" class="card__image">
+        <div class="card__caption">
+          <h2 class="card__name">Вашингтон</h2>
+          <button class="card__like" aria-label="Лайк"></button>
         </div>
       </article>
 
-      <article class="element">
-        <img src="./images/Mauritius.jpg" alt="Маврикий" class="element__image">
-        <div class="element__caption">
-          <h2 class="element__name">Маврикий</h2>
-          <button class="element__like"></button>
+      <article class="card">
+        <img src="./images/Mauritius.jpg" alt="Маврикий" class="card__image">
+        <div class="card__caption">
+          <h2 class="card__name">Маврикий</h2>
+          <button class="card__like" aria-label="Лайк"></button>
         </div>
       </article>
     </section>
@@ -97,6 +83,20 @@
   <footer class="footer">
     <p class="footer__copy">&copy; 2022 Mesto Russia</p>
   </footer>
+
+  <article class="popup">
+    <form class="popup__container" name="popup">
+      <button class="popup__close" type="button"></button>
+      <div class="popup__content">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <fieldset class="popup__input-container">
+          <input type="text" class="popup__el popup__el_type_name" name="name">
+          <input type="text" class="popup__el popup__el_type_job" name="job">
+        </fieldset>
+        <button class="popup__submite" type="submit">Сохранить</button>
+      </div>
+    </form>
+  </article>
 
   <script src="./scripts/index.js"></script>
 </body>
