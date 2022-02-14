@@ -11,11 +11,11 @@
   background-repeat: no-repeat;
   background-size: 22px 22px;
   box-sizing: border-box;
+  transition: .5s;
 }
 
 .profile__button-add:hover {
   opacity: 0.6;
-  transition: 0.3s;
   cursor: pointer;
 }
 

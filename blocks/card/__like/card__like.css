@@ -8,10 +8,10 @@
   border: none;
   box-sizing: border-box;
   align-self: center;
+  transition: .5s;
 }
 
 .card__like:hover {
   opacity: 0.6;
-  transition: .3s;
   cursor: pointer;
 }
