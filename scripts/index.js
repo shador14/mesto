@@ -3,7 +3,6 @@ const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupOpenButtonElement = document.querySelector('.profile__button-edit');
 
-const submitPopup = document.querySelector('.popup__submite');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
 const inputName = popupElement.querySelector('.popup__el_type_name');
@@ -11,9 +10,9 @@ const inputJob = popupElement.querySelector('.popup__el_type_job');
 
 //Функции
 const openPopup = function() {
-  popupElement.classList.add('popup_is-opened');
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
+  popupElement.classList.add('popup_is-opened');
 };
 
 const closePopup = function() {
