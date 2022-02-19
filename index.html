@@ -86,7 +86,7 @@
     <p class="footer__copy">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <article class="popup">
+  <article class="popup popup_type_edit">
     <form class="popup__container" name="popup">
       <button class="popup__close" type="button" aria-label="Закрыть"></button>
       <div class="popup__content">
@@ -96,6 +96,20 @@
           <input type="text" class="popup__el popup__el_type_job" name="job">
         </fieldset>
         <button class="popup__submite" type="submit">Сохранить</button>
+      </div>
+    </form>
+  </article>
+
+  <article class="popup popup_type_add">
+    <form class="popup__container" name="popup">
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+      <div class="popup__content">
+        <h2 class="popup__title">Новое место</h2>
+        <fieldset class="popup__input-container">
+          <input type="text" class="popup__el popup__el_type_mesto" name="mesto">
+          <input type="text" class="popup__el popup__el_type_url" name="url">
+        </fieldset>
+        <button class="popup__submite" type="submit">Создать</button>
       </div>
     </form>
   </article>
