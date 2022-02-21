@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
   background-size: 22px 22px;
   box-sizing: border-box;
-  transition: .5s;
+  transition: .3s;
 }
 
 .profile__button-add:hover {
