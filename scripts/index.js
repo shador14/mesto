@@ -84,7 +84,11 @@ function formSubmitHandler (evt) {
   closePopupEdit();
 };
 
-initialCards.forEach(renderItem);
+function renderItems(initialCards) {
+  initialCards.forEach(renderItem);
+};
+
+renderItems(initialCards);
 
 function renderItem(item) {
   const cardTemplate = document.querySelector('.item-template').content;
