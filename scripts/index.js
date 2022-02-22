@@ -94,7 +94,12 @@ initialCards.forEach(function(item) {
   cardImageElement.src = item.link;
   cardImageElement.alt = item.name;
 
-  sectionCards.append(cardElement);
+  const cardLike = cardElement.querySelector('.card__like');
+  cardLike.addEventListener('click', function(event) {
+    event.target.classList.toggle('card__like_active');
+  });
+
+  sectionCards.prepend(cardElement);
 });
 
 
