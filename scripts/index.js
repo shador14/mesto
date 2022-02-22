@@ -99,9 +99,20 @@ initialCards.forEach(function(item) {
     event.target.classList.toggle('card__like_active');
   });
 
+  deleteElement(cardElement);
+
   sectionCards.prepend(cardElement);
 });
 
+function deleteElement(cardElement) {
+  cardElement.querySelector('.card__delete').addEventListener('click', handleDelete)
+};
+
+function handleDelete(event) {
+  const cardElement = event.target.closest('.card');
+
+  cardElement.remove();
+};
 
 //Регистрируем обработчики событий по клику
 popupOpenButtonElementEdit.addEventListener('click', openPopup);
