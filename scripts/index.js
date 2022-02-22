@@ -84,7 +84,9 @@ function formSubmitHandler (evt) {
   closePopupEdit();
 };
 
-initialCards.forEach(function(item) {
+initialCards.forEach(renderItem);
+
+function renderItem(item) {
   const cardTemplate = document.querySelector('.item-template').content;
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   const cardNameElement = cardElement.querySelector('.card__name');
@@ -102,7 +104,7 @@ initialCards.forEach(function(item) {
   deleteElement(cardElement);
 
   sectionCards.prepend(cardElement);
-});
+};
 
 function deleteElement(cardElement) {
   cardElement.querySelector('.card__delete').addEventListener('click', handleDelete)
