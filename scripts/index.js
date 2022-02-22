@@ -15,7 +15,37 @@ const inputJob = popupElementEdit.querySelector('.popup__el_type_job');
 const inputMesto = popupElementAdd.querySelector('.popup__el_type_mesto');
 const inputUrl = popupElementAdd.querySelector('.popup__el_type_url');
 
-// console.log(inputUrl);
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
+const sectionCards = document.querySelector('.cards');
+
+
+
 
 //Функции
 const openPopup = function(event) {
@@ -39,11 +69,6 @@ const closePopupAdd = function() {
   popupElementAdd.classList.remove('popup_is-opened');
 };
 
-// const closePopup = function(event) {
-//   const popupElement = event.target.closest('.popup');
-//   popupElement.classList.remove('popup_is-opened');
-// };
-
 const closePopupByClickOnOverlay = function(event) {
   if (event.target !== event.currentTarget) {
     return;
@@ -58,6 +83,20 @@ function formSubmitHandler (evt) {
   profileJob.textContent = inputJob.value;
   closePopupEdit();
 };
+
+initialCards.forEach(function(item) {
+  const cardTemplate = document.querySelector('.item-template').content;
+  const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+  const cardNameElement = cardElement.querySelector('.card__name');
+  const cardImageElement = cardElement.querySelector('.card__image');
+
+  cardNameElement.textContent = item.name;
+  cardImageElement.src = item.link;
+  cardImageElement.alt = item.name;
+
+  sectionCards.append(cardElement);
+});
+
 
 //Регистрируем обработчики событий по клику
 popupOpenButtonElementEdit.addEventListener('click', openPopup);
