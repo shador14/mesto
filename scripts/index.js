@@ -15,6 +15,7 @@ const inputJob = popupElementEdit.querySelector('.popup__el_type_job');
 const inputMesto = popupElementAdd.querySelector('.popup__el_type_mesto');
 const inputUrl = popupElementAdd.querySelector('.popup__el_type_url');
 
+const sectionCards = document.querySelector('.cards');
 const initialCards = [
   {
     name: 'Архыз',
@@ -41,11 +42,6 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
-const sectionCards = document.querySelector('.cards');
-
-
-
 
 //Функции
 const openPopup = function(event) {
@@ -100,24 +96,41 @@ function renderItem(item) {
   cardImageElement.src = item.link;
   cardImageElement.alt = item.name;
 
-  const cardLike = cardElement.querySelector('.card__like');
-  cardLike.addEventListener('click', function(event) {
-    event.target.classList.toggle('card__like_active');
-  });
-
-  deleteElement(cardElement);
+  setEventListners(cardElement);
 
   sectionCards.prepend(cardElement);
 };
 
-function deleteElement(cardElement) {
-  cardElement.querySelector('.card__delete').addEventListener('click', handleDelete)
+function setEventListners(cardElement) {
+  const cardLike = cardElement.querySelector('.card__like');
+
+  cardElement.querySelector('.card__delete').addEventListener('click', handleDelete);
+  cardLike.addEventListener('click', function(event) {
+    event.target.classList.toggle('card__like_active');
+  });
 };
 
 function handleDelete(event) {
   const cardElement = event.target.closest('.card');
 
   cardElement.remove();
+};
+
+function addElement(event) {
+  event.preventDefault();
+
+  const cardTemplate = document.querySelector('.item-template').content;
+  const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+  const cardNameElement = cardElement.querySelector('.card__name');
+  const cardImageElement = cardElement.querySelector('.card__image');
+
+  cardNameElement.textContent = inputMesto.value;
+  cardImageElement.src = inputUrl.value;
+  cardImageElement.alt = inputMesto.value;
+
+  sectionCards.prepend(cardElement);
+  closePopupAdd();
+  setEventListners(cardElement);
 };
 
 //Регистрируем обработчики событий по клику
@@ -128,3 +141,4 @@ popupCloseButtonElementAdd.addEventListener('click', closePopupAdd);
 popupElementEdit.addEventListener('click', closePopupByClickOnOverlay);
 popupElementAdd.addEventListener('click', closePopupByClickOnOverlay);
 popupElementEdit.addEventListener('submit', formSubmitHandler);
+popupElementAdd.addEventListener('submit', addElement);
