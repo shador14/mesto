@@ -2,9 +2,11 @@
 const popupElement = document.querySelector('.popup');
 const popupElementEdit = document.querySelector('.popup_type_edit');
 const popupElementAdd = document.querySelector('.popup_type_add');
+const popupElementImg = document.querySelector('.popup_type_img');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupCloseButtonElementEdit = popupElementEdit.querySelector('.popup__close');
 const popupCloseButtonElementAdd = popupElementAdd.querySelector('.popup__close');
+const popupCloseButtonElementImg = popupElementImg.querySelector('.popup__close');
 const popupOpenButtonElementEdit = document.querySelector('.profile__button-edit');
 const popupOpenButtonElementAdd = document.querySelector('.profile__button-add');
 
@@ -65,12 +67,17 @@ const closePopupAdd = function() {
   popupElementAdd.classList.remove('popup_is-opened');
 };
 
+const closePopupImg = function() {
+  popupElementImg.classList.remove('popup_is-opened');
+};
+
 const closePopupByClickOnOverlay = function(event) {
   if (event.target !== event.currentTarget) {
     return;
   }
-  closePopupEdit()
-  closePopupAdd()
+  closePopupEdit();
+  closePopupAdd();
+  closePopupImg();
 };
 
 function formSubmitHandler (evt) {
@@ -103,10 +110,23 @@ function renderItem(item) {
 
 function setEventListners(cardElement) {
   const cardLike = cardElement.querySelector('.card__like');
+  const imgPopup = cardElement.querySelector('.card__image');
 
   cardElement.querySelector('.card__delete').addEventListener('click', handleDelete);
   cardLike.addEventListener('click', function(event) {
     event.target.classList.toggle('card__like_active');
+  });
+
+  imgPopup.addEventListener('click', function(event) {
+    const nameImage = cardElement.querySelector('.card__name');
+    const popupImg = popupElementImg.querySelector('.popup__img');
+    const popupCaption = popupElementImg.querySelector('.popup__caption');
+
+    popupImg.src = imgPopup.src;
+    popupImg.alt = imgPopup.alt;
+    popupCaption.textContent = nameImage.textContent;
+
+    popupElementImg.classList.add('popup_is-opened');
   });
 };
 
@@ -130,6 +150,8 @@ function addElement(event) {
 
   sectionCards.prepend(cardElement);
   closePopupAdd();
+  inputMesto.value = '';
+  inputUrl.value = '';
   setEventListners(cardElement);
 };
 
@@ -138,7 +160,9 @@ popupOpenButtonElementEdit.addEventListener('click', openPopup);
 popupOpenButtonElementAdd.addEventListener('click', openPopup);
 popupCloseButtonElementEdit.addEventListener('click', closePopupEdit);
 popupCloseButtonElementAdd.addEventListener('click', closePopupAdd);
+popupCloseButtonElementImg.addEventListener('click', closePopupImg);
 popupElementEdit.addEventListener('click', closePopupByClickOnOverlay);
 popupElementAdd.addEventListener('click', closePopupByClickOnOverlay);
+popupElementImg.addEventListener('click', closePopupByClickOnOverlay);
 popupElementEdit.addEventListener('submit', formSubmitHandler);
 popupElementAdd.addEventListener('submit', addElement);
