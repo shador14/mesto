@@ -61,11 +61,12 @@ function closePopupByClickOnOverlay(event, popupElement) {
   closePopup(popupElement);
 };
 
-function formSubmitHandler (evt) {
+function submitFormHandler (evt) {
   evt.preventDefault();
+  const popupElement = popupElementEdit;
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closePopupEdit();
+  closePopup(popupElement);
 };
 
 function renderItems(initialCards) {
@@ -182,5 +183,5 @@ popupElementImg.addEventListener('click', function(event) {
 
   closePopupByClickOnOverlay(event, popupElement);
 });
-popupElementEdit.addEventListener('submit', formSubmitHandler);
+popupElementEdit.addEventListener('submit', submitFormHandler);
 popupElementAdd.addEventListener('submit', addElement);
