@@ -46,17 +46,8 @@ const initialCards = [
 ];
 
 //Функции
-const openPopup = function(event) {
-  if (event.target === popupOpenButtonElementEdit) {
-    inputName.value = profileName.textContent;
-    inputJob.value = profileJob.textContent;
-    popupElementEdit.classList.add('popup_is-opened');
-  } else
-    if (event.target === popupOpenButtonElementAdd) {
-      inputMesto.placeholder = 'Название';
-      inputUrl.placeholder = 'Ссылка на картинку';
-      popupElementAdd.classList.add('popup_is-opened');
-    }
+function openPopup(popupElement) {
+  popupElement.classList.add('popup_is-opened');
 };
 
 const closePopupEdit = function() {
@@ -156,8 +147,21 @@ function addElement(event) {
 };
 
 //Регистрируем обработчики событий по клику
-popupOpenButtonElementEdit.addEventListener('click', openPopup);
-popupOpenButtonElementAdd.addEventListener('click', openPopup);
+popupOpenButtonElementEdit.addEventListener('click', function() {
+  const popupElement = popupElementEdit;
+
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+
+  openPopup(popupElement);
+});
+
+popupOpenButtonElementAdd.addEventListener('click', function() {
+  const popupElement = popupElementAdd;
+
+  openPopup(popupElement);
+});
+
 popupCloseButtonElementEdit.addEventListener('click', closePopupEdit);
 popupCloseButtonElementAdd.addEventListener('click', closePopupAdd);
 popupCloseButtonElementImg.addEventListener('click', closePopupImg);
