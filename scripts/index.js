@@ -17,6 +17,9 @@ const inputJob = popupElementEdit.querySelector('.popup__el_type_job');
 const inputMesto = popupElementAdd.querySelector('.popup__el_type_mesto');
 const inputUrl = popupElementAdd.querySelector('.popup__el_type_url');
 
+const popupImg = popupElementImg.querySelector('.popup__img');
+const popupCaption = popupElementImg.querySelector('.popup__caption');
+
 const sectionCards = document.querySelector('.cards');
 const initialCards = [
   {
@@ -101,8 +104,6 @@ function setEventListners(cardElement) {
 
   imgPopup.addEventListener('click', function(event) {
     const nameImage = cardElement.querySelector('.card__name');
-    const popupImg = popupElementImg.querySelector('.popup__img');
-    const popupCaption = popupElementImg.querySelector('.popup__caption');
     const popupElement = popupElementImg;
 
     popupImg.src = imgPopup.src;
