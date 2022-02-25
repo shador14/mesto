@@ -50,16 +50,8 @@ function openPopup(popupElement) {
   popupElement.classList.add('popup_is-opened');
 };
 
-const closePopupEdit = function() {
-  popupElementEdit.classList.remove('popup_is-opened');
-};
-
-const closePopupAdd = function() {
-  popupElementAdd.classList.remove('popup_is-opened');
-};
-
-const closePopupImg = function() {
-  popupElementImg.classList.remove('popup_is-opened');
+function closePopup(popupElement) {
+  popupElement.classList.remove('popup_is-opened');
 };
 
 const closePopupByClickOnOverlay = function(event) {
@@ -161,11 +153,23 @@ popupOpenButtonElementAdd.addEventListener('click', function() {
 
   openPopup(popupElement);
 });
-popupCloseButtonElementEdit.addEventListener('click', closePopupEdit);
-popupCloseButtonElementAdd.addEventListener('click', closePopupAdd);
-popupCloseButtonElementImg.addEventListener('click', closePopupImg);
-popupElementEdit.addEventListener('click', closePopupByClickOnOverlay);
-popupElementAdd.addEventListener('click', closePopupByClickOnOverlay);
-popupElementImg.addEventListener('click', closePopupByClickOnOverlay);
+popupCloseButtonElementEdit.addEventListener('click', function() {
+  const popupElement = popupElementEdit;
+
+  closePopup(popupElement);
+});
+popupCloseButtonElementAdd.addEventListener('click', function() {
+  const popupElement = popupElementAdd;
+
+  closePopup(popupElement);
+});
+popupCloseButtonElementImg.addEventListener('click', function() {
+  const popupElement = popupElementImg;
+
+  closePopup(popupElement);
+});
+// popupElementEdit.addEventListener('click', closePopupByClickOnOverlay);
+// popupElementAdd.addEventListener('click', closePopupByClickOnOverlay);
+// popupElementImg.addEventListener('click', closePopupByClickOnOverlay);
 popupElementEdit.addEventListener('submit', formSubmitHandler);
 popupElementAdd.addEventListener('submit', addElement);
