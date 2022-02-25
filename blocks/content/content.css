@@ -1,5 +1,6 @@
 .content {
   width: 68.75%;
+  min-height: 75vh;
   margin: 40px auto 0;
   padding: 0;
   display: flex;
