@@ -112,12 +112,13 @@ function setEventListners(cardElement) {
     const nameImage = cardElement.querySelector('.card__name');
     const popupImg = popupElementImg.querySelector('.popup__img');
     const popupCaption = popupElementImg.querySelector('.popup__caption');
+    const popupElement = popupElementImg;
 
     popupImg.src = imgPopup.src;
     popupImg.alt = imgPopup.alt;
     popupCaption.textContent = nameImage.textContent;
 
-    popupElementImg.classList.add('popup_is-opened');
+    openPopup(popupElement);
   });
 };
 
@@ -155,13 +156,11 @@ popupOpenButtonElementEdit.addEventListener('click', function() {
 
   openPopup(popupElement);
 });
-
 popupOpenButtonElementAdd.addEventListener('click', function() {
   const popupElement = popupElementAdd;
 
   openPopup(popupElement);
 });
-
 popupCloseButtonElementEdit.addEventListener('click', closePopupEdit);
 popupCloseButtonElementAdd.addEventListener('click', closePopupAdd);
 popupCloseButtonElementImg.addEventListener('click', closePopupImg);
