@@ -72,13 +72,7 @@ function submitFormHandler (evt) {
   closePopup(popupElement);
 };
 
-function renderItems(initialCards) {
-  initialCards.forEach(renderItem);
-};
-
-renderItems(initialCards);
-
-function renderItem(item) {
+function createCard (item) {
   const cardTemplate = document.querySelector('.item-template').content;
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   const cardNameElement = cardElement.querySelector('.card__name');
@@ -90,8 +84,17 @@ function renderItem(item) {
 
   setEventListners(cardElement);
 
+  return cardElement;
+};
+
+const renderItem = (item, sectionCards) => {
+  const cardElement = createCard(item);
   sectionCards.prepend(cardElement);
 };
+
+initialCards.forEach((item) => {
+  renderItem(item, sectionCards);
+});
 
 function setEventListners(cardElement) {
   const cardLike = cardElement.querySelector('.card__like');
