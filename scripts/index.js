@@ -123,26 +123,6 @@ function handleDelete(event) {
   cardElement.remove();
 };
 
-// function addElement(event) {
-//   event.preventDefault();
-
-//   const cardTemplate = document.querySelector('.item-template').content;
-//   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-//   const cardNameElement = cardElement.querySelector('.card__name');
-//   const cardImageElement = cardElement.querySelector('.card__image');
-//   const popupElement = popupElementAdd;
-
-//   cardNameElement.textContent = inputMesto.value;
-//   cardImageElement.src = inputUrl.value;
-//   cardImageElement.alt = inputMesto.value;
-
-//   sectionCards.prepend(cardElement);
-//   closePopup(popupElement);
-//   inputMesto.value = '';
-//   inputUrl.value = '';
-//   setEventListners(cardElement);
-// };
-
 function addElement(event) {
   event.preventDefault();
 
