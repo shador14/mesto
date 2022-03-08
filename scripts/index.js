@@ -66,10 +66,9 @@ function closePopupByClickOnOverlay(event, popupElement) {
 
 function submitFormHandler (evt) {
   evt.preventDefault();
-  const popupElement = popupElementEdit;
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closePopup(popupElement);
+  closePopup(popupElementEdit);
 };
 
 function createCard (item) {
@@ -107,13 +106,12 @@ function setEventListners(cardElement) {
 
   imgPopup.addEventListener('click', function(event) {
     const nameImage = cardElement.querySelector('.card__name');
-    const popupElement = popupElementImg;
 
     popupImg.src = imgPopup.src;
     popupImg.alt = imgPopup.alt;
     popupCaption.textContent = nameImage.textContent;
 
-    openPopup(popupElement);
+    openPopup(popupElementImg);
   });
 };
 
@@ -138,47 +136,31 @@ function addElement(event) {
 
 //Регистрируем обработчики событий по клику
 popupOpenButtonElementEdit.addEventListener('click', function() {
-  const popupElement = popupElementEdit;
-
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
 
-  openPopup(popupElement);
+  openPopup(popupElementEdit);
 });
 popupOpenButtonElementAdd.addEventListener('click', function() {
-  const popupElement = popupElementAdd;
-
-  openPopup(popupElement);
+  openPopup(popupElementAdd);
 });
 popupCloseButtonElementEdit.addEventListener('click', function() {
-  const popupElement = popupElementEdit;
-
-  closePopup(popupElement);
+  closePopup(popupElementEdit);
 });
 popupCloseButtonElementAdd.addEventListener('click', function() {
-  const popupElement = popupElementAdd;
-
-  closePopup(popupElement);
+  closePopup(popupElementAdd);
 });
 popupCloseButtonElementImg.addEventListener('click', function() {
-  const popupElement = popupElementImg;
-
-  closePopup(popupElement);
+  closePopup(popupElementImg);
 });
 popupElementEdit.addEventListener('click', function(event) {
-  const popupElement = popupElementEdit;
-
-  closePopupByClickOnOverlay(event, popupElement);
+  closePopupByClickOnOverlay(event, popupElementEdit);
 });
 popupElementAdd.addEventListener('click', function(event) {
-  const popupElement = popupElementAdd;
-
-  closePopupByClickOnOverlay(event, popupElement);
+  closePopupByClickOnOverlay(event, popupElementAdd);
 });
 popupElementImg.addEventListener('click', function(event) {
-  const popupElement = popupElementImg;
-
-  closePopupByClickOnOverlay(event, popupElement);
+  closePopupByClickOnOverlay(event, popupElementImg);
 });
 popupElementEdit.addEventListener('submit', submitFormHandler);
 popupElementAdd.addEventListener('submit', addElement);
