@@ -1,5 +1,6 @@
 const formElement = document.querySelector('.popup__container');
 const formInput = formElement.querySelector('.popup__el');
+const formError = formElement.querySelector(`.${formInput.id}-error`);
 
 const showError = (input) => {
   input.classList.add('popup__el_type_error');
@@ -26,3 +27,5 @@ formElement.addEventListener('submit', function(evt) {
 formInput.addEventListener('input', function () {
   isValidity();
 });
+
+console.log(formError);

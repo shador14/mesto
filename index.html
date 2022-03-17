@@ -45,7 +45,8 @@
       <div class="popup__content">
         <h2 class="popup__title">Редактировать профиль</h2>
         <fieldset class="popup__input-container">
-          <input type="text" class="popup__el popup__el_type_name" name="name" minlength="2" maxlength="40" required>
+          <input type="text" class="popup__el popup__el_type_name" name="name" id="name-input" minlength="2" maxlength="40" required>
+          <span class="popup__el-error name-input-error"></span>
           <input type="text" class="popup__el popup__el_type_job" name="job" minlength="2" maxlength="200" required>
         </fieldset>
         <button class="popup__submite" type="submit">Сохранить</button>

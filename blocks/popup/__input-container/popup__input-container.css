@@ -2,6 +2,7 @@
   width: 100%;
   margin: 54px 0 0;
   padding: 0;
+  position: relative;
   border: none;
   display: flex;
   flex-direction: column;
