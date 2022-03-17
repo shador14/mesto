@@ -1,31 +1,46 @@
-const formElement = document.querySelector('.popup__container');
-const formInput = formElement.querySelector('.popup__el');
-const formError = formElement.querySelector(`.${formInput.id}-error`);
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-const showError = (input) => {
-  input.classList.add('popup__el_type_error');
+  inputElement.classList.add('popup__el_type_error');
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('popup__el-error_active');
 };
 
-const hideError = (input) => {
-  input.classList.remove('popup__el_type_error');
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+  inputElement.classList.remove('popup__el_type_error');
+  errorElement.classList.remove('popup__el-error_active');
+  errorElement.textContent = '';
 };
 
-const isValidity = () => {
-  if (!formInput.validity.valid) {
-    showError(formInput);
+const isValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    hideError(formInput);
+    hideInputError(formElement, inputElement);
   }
 };
 
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.popup__el'));
 
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function () {
+      isValidity(formElement, inputElement);
+    });
+  });
+};
 
-formElement.addEventListener('submit', function(evt) {
-  evt.preventDefault();
-});
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll('.popup__container'));
 
-formInput.addEventListener('input', function () {
-  isValidity();
-});
+  formList.forEach((formElement) => {
+    formElement.addEventListener('submit', function() {
+      evt.preventDefault();
+    });
+    setEventListeners(formElement);
+  });
+};
 
-console.log(formError);
+enableValidation();

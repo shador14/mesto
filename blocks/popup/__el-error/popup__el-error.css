@@ -3,9 +3,13 @@
   line-height: 15px;
   font-weight: 400;
   color: red;
-  opacity: 1;
+  opacity: 0;
   position: absolute;
-  top: calc(100% - 57px);
+  top: calc(100% - 60px);
   left: 0;
   transition: 0.3s;
+}
+
+.popup__el-error:nth-of-type(2n) {
+  top: calc(100% - 0px);
 }
