@@ -64,6 +64,13 @@ function closePopupByClickOnOverlay(event, popupElement) {
   closePopup(popupElement);
 };
 
+function closePopupByEsc(event, popupElement) {
+  if (event.key !== 'Escape') {
+    return;
+  }
+  closePopup(popupElement);
+};
+
 function submitFormHandler (evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
@@ -161,6 +168,15 @@ popupElementAdd.addEventListener('click', function(event) {
 });
 popupElementImg.addEventListener('click', function(event) {
   closePopupByClickOnOverlay(event, popupElementImg);
+});
+popupElementEdit.addEventListener('keydown', function(event) {
+  closePopupByEsc(event, popupElementEdit);
+});
+popupElementAdd.addEventListener('keydown', function(event) {
+  closePopupByEsc(event, popupElementAdd);
+});
+popupElementImg.addEventListener('keydown', function(event) {
+  closePopupByEsc(event, popupElementImg);
 });
 popupElementEdit.addEventListener('submit', submitFormHandler);
 popupElementAdd.addEventListener('submit', addElement);
