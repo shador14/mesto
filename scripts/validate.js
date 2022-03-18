@@ -24,10 +24,13 @@ const isValidity = (formElement, inputElement) => {
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll('.popup__el'));
+  const buttonElement = formElement.querySelector('.popup__submite');
+  toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       isValidity(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
@@ -36,11 +39,34 @@ const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll('.popup__container'));
 
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function() {
+    formElement.addEventListener('submit', function(evt) {
       evt.preventDefault();
     });
+
+    // const fieldsetList = Array.from(formElement.querySelectorAll('.popup__input-container'));
+
+    // fieldsetList.forEach((formElement) => {
+    //   setEventListeners(formElement);
+    // });
+
     setEventListeners(formElement);
   });
 };
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add('popup__submite_inactive');
+  } else {
+    buttonElement.classList.remove('popup__submite_inactive');
+  }
+};
+
+
 
 enableValidation();
