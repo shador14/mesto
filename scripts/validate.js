@@ -42,13 +42,6 @@ const enableValidation = () => {
     formElement.addEventListener('submit', function(evt) {
       evt.preventDefault();
     });
-
-    // const fieldsetList = Array.from(formElement.querySelectorAll('.popup__input-container'));
-
-    // fieldsetList.forEach((formElement) => {
-    //   setEventListeners(formElement);
-    // });
-
     setEventListeners(formElement);
   });
 };
@@ -62,8 +55,10 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add('popup__submite_inactive');
+    buttonElement.setAttribute('disabled', 'true');
   } else {
     buttonElement.classList.remove('popup__submite_inactive');
+    buttonElement.removeAttribute('disabled', 'false');
   }
 };
 
