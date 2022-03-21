@@ -62,6 +62,11 @@ const toggleButtonState = (inputList, buttonElement) => {
   }
 };
 
-
-
-enableValidation();
+enableValidation({
+  formSelector: '.popup__container',
+  inputSelector: '.popup__el',
+  submitButtonSelector: '.popup__submite',
+  inactiveButtonClass: 'popup__submite_inactive',
+  inputErrorClass: 'popup__el_type_error',
+  errorClass: 'popup__el-error_active'
+});
