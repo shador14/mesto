@@ -22,10 +22,6 @@ const popupCaption = popupElementImg.querySelector('.popup__caption');
 
 const sectionCards = document.querySelector('.cards');
 
-
-
-
-
 //Функции
 function openPopup(popupElement) {
   popupElement.classList.add('popup_is-opened');
@@ -131,32 +127,23 @@ popupOpenButtonElementEdit.addEventListener('click', function() {
 popupOpenButtonElementAdd.addEventListener('click', function() {
   openPopup(popupElementAdd);
 });
-popupCloseButtonElementEdit.addEventListener('click', function() {
-  closePopup(popupElementEdit);
-});
-popupCloseButtonElementAdd.addEventListener('click', function() {
-  closePopup(popupElementAdd);
-});
-popupCloseButtonElementImg.addEventListener('click', function() {
-  closePopup(popupElementImg);
-});
 popupElementEdit.addEventListener('click', function(event) {
+  if (event.target.className === 'popup__close') {
+    closePopup(popupElementEdit);
+  }
   closePopupByClickOnOverlay(event, popupElementEdit);
 });
 popupElementAdd.addEventListener('click', function(event) {
+  if (event.target.className === 'popup__close') {
+    closePopup(popupElementAdd);
+  }
   closePopupByClickOnOverlay(event, popupElementAdd);
 });
 popupElementImg.addEventListener('click', function(event) {
+  if (event.target.className === 'popup__close') {
+    closePopup(popupElementImg);
+  }
   closePopupByClickOnOverlay(event, popupElementImg);
 });
-// popupElementEdit.addEventListener('keydown', function(event) {
-//   closePopupByEsc(event, popupElementEdit);
-// });
-// popupElementAdd.addEventListener('keydown', function(event) {
-//   closePopupByEsc(event, popupElementAdd);
-// });
-// popupElementImg.addEventListener('keydown', function(event) {
-//   closePopupByEsc(event, popupElementImg);
-// });
 popupElementEdit.addEventListener('submit', submitFormHandler);
 popupElementAdd.addEventListener('submit', addElement);
