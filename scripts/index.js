@@ -22,28 +22,40 @@ const popupCaption = popupElementImg.querySelector('.popup__caption');
 
 const sectionCards = document.querySelector('.cards');
 
+
+
+
+
 //Функции
 function openPopup(popupElement) {
   popupElement.classList.add('popup_is-opened');
+  document.addEventListener('keydown', closePopupbyEsc);
 };
 
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_is-opened');
+  document.removeEventListener('keydown', closePopupbyEsc);
 };
 
 function closePopupByClickOnOverlay(event, popupElement) {
-  if (event.target !== event.currentTarget) {
-    return;
+  if (event.target === event.currentTarget) {
+    closePopup(popupElement);
   }
-  closePopup(popupElement);
+  return;
 };
 
-function closePopupByEsc(event, popupElement) {
-  if (event.key !== 'Escape') {
-    return;
+function closePopupbyEsc(event) {
+  const popupElement = document.querySelector('.popup_is-opened');
+
+  if (event.key === 'Escape') {
+    closePopup(popupElement);
   }
-  closePopup(popupElement);
+  return;
 };
+
+
+
+
 
 function submitFormHandler (evt) {
   evt.preventDefault();
@@ -143,14 +155,14 @@ popupElementAdd.addEventListener('click', function(event) {
 popupElementImg.addEventListener('click', function(event) {
   closePopupByClickOnOverlay(event, popupElementImg);
 });
-popupElementEdit.addEventListener('keydown', function(event) {
-  closePopupByEsc(event, popupElementEdit);
-});
-popupElementAdd.addEventListener('keydown', function(event) {
-  closePopupByEsc(event, popupElementAdd);
-});
-popupElementImg.addEventListener('keydown', function(event) {
-  closePopupByEsc(event, popupElementImg);
-});
+// popupElementEdit.addEventListener('keydown', function(event) {
+//   closePopupByEsc(event, popupElementEdit);
+// });
+// popupElementAdd.addEventListener('keydown', function(event) {
+//   closePopupByEsc(event, popupElementAdd);
+// });
+// popupElementImg.addEventListener('keydown', function(event) {
+//   closePopupByEsc(event, popupElementImg);
+// });
 popupElementEdit.addEventListener('submit', submitFormHandler);
 popupElementAdd.addEventListener('submit', addElement);
