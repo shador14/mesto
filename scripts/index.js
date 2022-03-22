@@ -116,7 +116,6 @@ function addElement(event) {
   popupElementAdd.querySelector('.popup__container').reset();
 };
 
-
 //Регистрируем обработчики событий по клику
 popupOpenButtonElementEdit.addEventListener('click', function() {
   inputName.value = profileName.textContent;
