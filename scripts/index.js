@@ -53,10 +53,6 @@ function closePopupbyEsc(event) {
   return;
 };
 
-
-
-
-
 function submitFormHandler (evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
@@ -93,9 +89,7 @@ function setEventListners(cardElement) {
   const imgPopup = cardElement.querySelector('.card__image');
 
   cardElement.querySelector('.card__delete').addEventListener('click', handleDelete);
-  cardLike.addEventListener('click', function(event) {
-    event.target.classList.toggle('card__like_active');
-  });
+  cardLike.addEventListener('click', establishLike);
 
   imgPopup.addEventListener('click', function(event) {
     const nameImage = cardElement.querySelector('.card__name');
@@ -112,6 +106,10 @@ function handleDelete(event) {
   const cardElement = event.target.closest('.card');
 
   cardElement.remove();
+};
+
+function establishLike(event) {
+  event.target.classList.toggle('card__like_active');
 };
 
 function addElement(event) {
