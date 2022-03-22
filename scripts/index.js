@@ -103,9 +103,7 @@ function setEventListners(cardElement) {
 };
 
 function handleDelete(event) {
-  const cardElement = event.target.closest('.card');
-
-  cardElement.remove();
+  event.target.closest('.card').remove();
 };
 
 function establishLike(event) {
@@ -115,13 +113,11 @@ function establishLike(event) {
 function addElement(event) {
   event.preventDefault();
 
-  const card = {name: inputMesto.value, link: inputUrl.value};
-  const newCard = createCard(card);
+  const newCard = createCard({name: inputMesto.value, link: inputUrl.value});
   sectionCards.prepend(newCard);
 
   closePopup(popupElementAdd);
-  inputMesto.value = '';
-  inputUrl.value = '';
+  popupElementAdd.querySelector('.popup__container').reset();
 };
 
 
