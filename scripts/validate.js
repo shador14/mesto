@@ -25,7 +25,10 @@ const isValidity = (formElement, inputElement) => {
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll('.popup__el'));
   const buttonElement = formElement.querySelector('.popup__submite');
-  toggleButtonState(inputList, buttonElement);
+
+  if (formElement.closest('.popup_type_add')) {
+    toggleButtonState(inputList, buttonElement);
+  };
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
