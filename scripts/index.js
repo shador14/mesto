@@ -126,11 +126,14 @@ function establishLike(event) {
 function addElement(event) {
   event.preventDefault();
 
+  const buttonElement = popupElementAdd.querySelector('.popup__submite')
   const newCard = createCard({name: inputMesto.value, link: inputUrl.value});
   sectionCards.prepend(newCard);
 
   closePopup(popupElementAdd);
   popupElementAdd.querySelector('.popup__container').reset();
+  buttonElement.classList.add('popup__submite_inactive');
+  buttonElement.setAttribute('disabled', 'true');
 };
 
 //Регистрируем обработчики событий по клику

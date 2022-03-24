@@ -8,8 +8,6 @@ const options = {
   popupTypeAdd: '.popup_type_add'
 };
 
-console.log(options.inputErrorClass);
-
 const showInputError = (formElement, inputElement, errorMessage, options) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
