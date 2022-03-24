@@ -1,51 +1,63 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-
-  inputElement.classList.add('popup__el_type_error');
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add('popup__el-error_active');
+const options = {
+  formSelector: '.popup__container',
+  inputSelector: '.popup__el',
+  submitButtonSelector: '.popup__submite',
+  inactiveButtonClass: 'popup__submite_inactive',
+  inputErrorClass: 'popup__el_type_error',
+  errorClass: 'popup__el-error_active',
+  popupTypeAdd: '.popup_type_add'
 };
 
-const hideInputError = (formElement, inputElement) => {
+console.log(options.inputErrorClass);
+
+const showInputError = (formElement, inputElement, errorMessage, options) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-  inputElement.classList.remove('popup__el_type_error');
-  errorElement.classList.remove('popup__el-error_active');
+  inputElement.classList.add(options.inputErrorClass);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(options.errorClass);
+};
+
+const hideInputError = (formElement, inputElement, options) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+  inputElement.classList.remove(options.inputErrorClass);
+  errorElement.classList.remove(options.errorClass);
   errorElement.textContent = '';
 };
 
-const isValidity = (formElement, inputElement) => {
+const isValidity = (formElement, inputElement, options) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, options);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, options);
   }
 };
 
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.popup__el'));
-  const buttonElement = formElement.querySelector('.popup__submite');
+const setEventListeners = (formElement, options) => {
+  const inputList = Array.from(formElement.querySelectorAll(options.inputSelector));
+  const buttonElement = formElement.querySelector(options.submitButtonSelector);
 
-  if (formElement.closest('.popup_type_add')) {
-    toggleButtonState(inputList, buttonElement);
+  if (formElement.closest(options.popupTypeAdd)) {
+    toggleButtonState(inputList, buttonElement, options);
   };
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      isValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      isValidity(formElement, inputElement, options);
+      toggleButtonState(inputList, buttonElement, options);
     });
   });
 };
 
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.popup__container'));
+const enableValidation = (options) => {
+  const formList = Array.from(document.querySelectorAll(options.formSelector));
 
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', function(evt) {
       evt.preventDefault();
     });
-    setEventListeners(formElement);
+    setEventListeners(formElement, options);
   });
 };
 
@@ -55,21 +67,14 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, options) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__submite_inactive');
+    buttonElement.classList.add(options.inactiveButtonClass);
     buttonElement.setAttribute('disabled', 'true');
   } else {
-    buttonElement.classList.remove('popup__submite_inactive');
+    buttonElement.classList.remove(options.inactiveButtonClass);
     buttonElement.removeAttribute('disabled', 'false');
   }
 };
 
-enableValidation({
-  formSelector: '.popup__container',
-  inputSelector: '.popup__el',
-  submitButtonSelector: '.popup__submite',
-  inactiveButtonClass: '.popup__submite_inactive',
-  inputErrorClass: '.popup__el_type_error',
-  errorClass: '.popup__el-error_active'
-});
+enableValidation(options);
