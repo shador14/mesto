@@ -66,7 +66,7 @@ function closePopupByEsc(event) {
   }
 };
 
-function fillFormInput (evt) {
+function handleSubmitEditProfile (evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
@@ -132,8 +132,7 @@ function addElement(event) {
 
   closePopup(popupElementAdd);
   popupElementAdd.querySelector('.popup__container').reset();
-  buttonElement.classList.add('popup__submite_inactive');
-  buttonElement.setAttribute('disabled', 'true');
+  toggleButtonDisabled(buttonElement, options);
 };
 
 //Регистрируем обработчики событий по клику
@@ -161,5 +160,5 @@ popupElementImg.addEventListener('click', function(event) {
     closePopup(popupElementImg);
   }
 });
-popupElementEdit.addEventListener('submit', fillFormInput);
+popupElementEdit.addEventListener('submit', handleSubmitEditProfile);
 popupElementAdd.addEventListener('submit', addElement);
