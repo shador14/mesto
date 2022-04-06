@@ -197,8 +197,6 @@ class Card {
       this._establishLike(cardLike);
     });
   };
-
-
 };
 
 initialCards.forEach((item) => {
