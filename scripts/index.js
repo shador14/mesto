@@ -1,4 +1,5 @@
 import { Card } from "./card.js";
+import { FormValidator } from "./FormValidator.js";
 export { popupImg, popupCaption, openPopup, popupElementImg };
 
 //Выборка DOM эелементов
@@ -46,6 +47,25 @@ const initialCards = [
   }
 ];
 
+const options = {
+  formSelector: '.popup__container',
+  inputSelector: '.popup__el',
+  submitButtonSelector: '.popup__submite',
+  inactiveButtonClass: 'popup__submite_inactive',
+  inputErrorClass: 'popup__el_type_error',
+  errorClass: 'popup__el-error_active',
+  popupTypeAdd: '.popup_type_add'
+};
+
+const addCardForm = popupElementAdd.querySelector('.popup__container');
+const editProfileForm = popupElementEdit.querySelector('.popup__container');
+
+const addCardFormValidator = new FormValidator(options, addCardForm);
+const editProfileFormValidator = new FormValidator(options, editProfileForm);
+
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
+
 //Функции
 function renderItems(item) {
   const cardSelector = document.querySelector('.item-template');
@@ -92,10 +112,9 @@ function addElement(event) {
 
   closePopup(popupElementAdd);
   popupElementAdd.querySelector('.popup__container').reset();
-  toggleButtonDisabled(buttonElement, options);
+  buttonElement.classList.add(options.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', 'true');
 };
-
-
 
 //Регистрируем обработчики событий по клику
 popupOpenButtonElementEdit.addEventListener('click', function() {
