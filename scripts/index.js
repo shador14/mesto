@@ -179,11 +179,20 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._setEventListeners();
 
     this._element.querySelector('.card__name').textContent = this._name;
     this._element.querySelector('.card__image').src = this._image;
 
     return this._element;
+  };
+
+  _setEventListeners() {
+    const cardLike = this._element.querySelector('.card__like');
+    cardLike.addEventListener('click', () => {
+      cardLike.classList.toggle('card__like_active');
+    });
+
   };
 };
 
