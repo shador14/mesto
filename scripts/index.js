@@ -189,13 +189,23 @@ class Card {
 
   _establishLike(cardLike) {
     cardLike.classList.toggle('card__like_active');
-  }
+  };
+
+  _handleDelete(cardDelete) {
+    cardDelete.closest('.card').remove();
+  };
 
   _setEventListeners() {
     const cardLike = this._element.querySelector('.card__like');
+    const cardDelete = this._element.querySelector('.card__delete');
+
     cardLike.addEventListener('click', () => {
       this._establishLike(cardLike);
     });
+
+    cardDelete.addEventListener('click', () => {
+      this._handleDelete(cardDelete);
+    })
   };
 };
 
