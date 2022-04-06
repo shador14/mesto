@@ -187,13 +187,18 @@ class Card {
     return this._element;
   };
 
+  _establishLike(cardLike) {
+    cardLike.classList.toggle('card__like_active');
+  }
+
   _setEventListeners() {
     const cardLike = this._element.querySelector('.card__like');
     cardLike.addEventListener('click', () => {
-      cardLike.classList.toggle('card__like_active');
+      this._establishLike(cardLike);
     });
-
   };
+
+
 };
 
 initialCards.forEach((item) => {
