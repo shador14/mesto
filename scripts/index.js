@@ -1,6 +1,5 @@
-import { Card } from "./card.js";
+import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
-export { popupImg, popupCaption, openPopup, popupElementImg };
 
 //Выборка DOM эелементов
 const popupElementEdit = document.querySelector('.popup_type_edit');
@@ -69,7 +68,7 @@ editProfileFormValidator.enableValidation();
 //Функции
 function renderItems(item) {
   const cardSelector = document.querySelector('.item-template');
-  const card = new Card(item, cardSelector);
+  const card = new Card(item, cardSelector, handleCardClick);
   const cardElement = card.generateCard();
 
   sectionCards.prepend(cardElement);
@@ -114,6 +113,14 @@ function addElement(event) {
   popupElementAdd.querySelector('.popup__container').reset();
   buttonElement.classList.add(options.inactiveButtonClass);
   buttonElement.setAttribute('disabled', 'true');
+};
+
+function handleCardClick(cardImg, name) {
+  popupImg.src = cardImg.src;
+  // popupImg.alt = name;
+  popupCaption.textContent = name;
+
+openPopup(popupElementImg);
 };
 
 //Регистрируем обработчики событий по клику

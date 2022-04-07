@@ -1,11 +1,9 @@
-export { Card };
-import { popupImg, popupCaption, openPopup, popupElementImg } from './index.js';
-
 class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._image = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   };
 
   _getTemplate() {
@@ -32,16 +30,6 @@ class Card {
     this._cardDelete.closest('.card').remove();
   };
 
-  _handlePreviewImg() {
-    const _nameImage = this._element.querySelector('.card__name');
-
-    popupImg.src = this._cardImg.src;
-    popupImg.alt = this._cardImg.alt;
-    popupCaption.textContent = _nameImage.textContent;
-
-    openPopup(popupElementImg);
-  };
-
   _setEventListeners() {
     this._cardLike = this._element.querySelector('.card__like');
     this._cardDelete = this._element.querySelector('.card__delete');
@@ -56,7 +44,9 @@ class Card {
     });
 
     this._cardImg.addEventListener('click', () => {
-      this._handlePreviewImg();
+      this._handleCardClick(this._cardImg, this._name);
     });
   };
 };
+
+export { Card };
