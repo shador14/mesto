@@ -1,13 +1,13 @@
 class Card {
-  constructor(data, cardSelector, handleCardClick) {
+  constructor(data, cardTemplate, handleCardClick) {
     this._name = data.name;
     this._image = data.link;
-    this._cardSelector = cardSelector;
+    this._cardTemplate = cardTemplate;
     this._handleCardClick = handleCardClick;
   };
 
   _getTemplate() {
-    const cardElement = this._cardSelector.content.querySelector('.card').cloneNode(true);
+    const cardElement = this._cardTemplate.content.querySelector('.card').cloneNode(true);
 
     return cardElement;
   };
@@ -17,7 +17,8 @@ class Card {
     this._setEventListeners();
 
     this._element.querySelector('.card__name').textContent = this._name;
-    this._element.querySelector('.card__image').src = this._image;
+    this._cardImg.src = this._image;
+    this._cardImg.alt = this._name;
 
     return this._element;
   };

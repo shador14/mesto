@@ -67,8 +67,8 @@ editProfileFormValidator.enableValidation();
 
 //Функции
 function renderItems(item) {
-  const cardSelector = document.querySelector('.item-template');
-  const card = new Card(item, cardSelector, handleCardClick);
+  const cardTemplate = document.querySelector('.item-template');
+  const card = new Card(item, cardTemplate, handleCardClick);
   const cardElement = card.generateCard();
 
   sectionCards.prepend(cardElement);
@@ -117,7 +117,7 @@ function addElement(event) {
 
 function handleCardClick(cardImg, name) {
   popupImg.src = cardImg.src;
-  // popupImg.alt = name;
+  popupImg.alt = name;
   popupCaption.textContent = name;
 
 openPopup(popupElementImg);
