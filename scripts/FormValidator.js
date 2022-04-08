@@ -81,11 +81,11 @@ class FormValidator {
   };
 
   resetValidation() {
-    this._toggleButtonState();
-
+    this._form.reset();
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
+    this._toggleButtonState();
   };
 };
 

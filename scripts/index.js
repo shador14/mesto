@@ -131,6 +131,8 @@ popupOpenButtonElementEdit.addEventListener('click', function() {
   openPopup(popupElementEdit);
 });
 popupOpenButtonElementAdd.addEventListener('click', function() {
+  // addCardFormValidator.resetValidation();
+  // addCardFormValidator.toggleButtonDisabled();
   addCardFormValidator.resetValidation();
   openPopup(popupElementAdd);
 });
