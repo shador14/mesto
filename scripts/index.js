@@ -105,14 +105,10 @@ function handleSubmitEditProfile (evt) {
 function addElement(event) {
   event.preventDefault();
 
-  const buttonElement = popupElementAdd.querySelector('.popup__submite')
   const newCard = ({name: inputMesto.value, link: inputUrl.value});
   renderItems(newCard);
 
   closePopup(popupElementAdd);
-  popupElementAdd.querySelector('.popup__container').reset();
-  buttonElement.classList.add(options.inactiveButtonClass);
-  buttonElement.setAttribute('disabled', 'true');
 };
 
 function handleCardClick(cardImg, name) {
@@ -131,8 +127,6 @@ popupOpenButtonElementEdit.addEventListener('click', function() {
   openPopup(popupElementEdit);
 });
 popupOpenButtonElementAdd.addEventListener('click', function() {
-  // addCardFormValidator.resetValidation();
-  // addCardFormValidator.toggleButtonDisabled();
   addCardFormValidator.resetValidation();
   openPopup(popupElementAdd);
 });
