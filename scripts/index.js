@@ -67,16 +67,21 @@ editProfileFormValidator.enableValidation();
 
 //Функции
 function renderItems(item) {
-  const cardTemplate = document.querySelector('.item-template');
-  const card = new Card(item, cardTemplate, handleCardClick);
-  const cardElement = card.generateCard();
-
+  const cardElement = createCard(item);
   sectionCards.prepend(cardElement);
 };
 
 initialCards.forEach((item) => {
   renderItems(item);
 });
+
+function createCard (item) {
+  const cardTemplate = document.querySelector('.item-template');
+  const card = new Card(item, cardTemplate, handleCardClick);
+  const cardElement = card.generateCard();
+
+  return cardElement;
+};
 
 function openPopup(popupElement) {
   popupElement.classList.add('popup_is-opened');
@@ -124,6 +129,7 @@ popupOpenButtonElementEdit.addEventListener('click', function() {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
 
+  editProfileFormValidator.resetInputError();
   openPopup(popupElementEdit);
 });
 popupOpenButtonElementAdd.addEventListener('click', function() {
